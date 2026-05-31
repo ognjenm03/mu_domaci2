@@ -5,7 +5,6 @@ import gymnasium as gym
 from pathlib import Path
 from minigrid.wrappers import FullyObsWrapper, ImgObsWrapper
 
-# Model citamo pored ove skripte (u folderu 3).
 BASE_DIR = Path(__file__).resolve().parent
 
 if th.cuda.is_available():
@@ -16,8 +15,6 @@ else:
     device = "cpu"
 
 LOCAL = True
-
-#################### TO-DO ####################
 
 
 class SimpleNet(th.nn.Module):
@@ -36,9 +33,6 @@ class SimpleNet(th.nn.Module):
 model = SimpleNet().to(device)
 model.load_state_dict(th.load(BASE_DIR / 'model.pth', map_location=device))
 model.eval()
-
-
-###############################################
 
 
 env = gym.make(
@@ -66,7 +60,7 @@ for episode in range(10):
         if LOCAL:
             env.render()
         with th.no_grad():
-            obs = th.tensor(obs, dtype=th.float64, device=device).reshape(-1, 108)  #! promeniti po potrebi
+            obs = th.tensor(obs, dtype=th.float64, device=device).reshape(-1, 108)
             action = model(obs)
         obs, reward, terminated, truncated, _ = env.step(th.argmax(action).item())
         step += 1

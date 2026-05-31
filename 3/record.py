@@ -6,7 +6,6 @@ from pathlib import Path
 from minigrid.core.actions import Actions
 from minigrid.wrappers import FullyObsWrapper, ImgObsWrapper
 
-# Fajlove cuvamo pored ove skripte (u folderu 3), nezavisno od radnog direktorijuma.
 BASE_DIR = Path(__file__).resolve().parent
 
 

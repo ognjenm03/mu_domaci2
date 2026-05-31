@@ -1,0 +1,84 @@
+   Nitrogen  Phosphorus  Potassium  ...  pH_Value    Rainfall  Crop
+0        90          42         43  ...  6.502985  202.935536  Rice
+1        85          58         41  ...  7.038096  226.655537  Rice
+2        60          55         44  ...  7.840207  263.964248  Rice
+3        74          35         40  ...  6.980401  242.864034  Rice
+4        78          42         42  ...  7.628473  262.717340  Rice
+
+[5 rows x 8 columns]
+Crop
+Rice           100
+Maize          100
+ChickPea       100
+KidneyBeans    100
+PigeonPeas     100
+MothBeans      100
+MungBean       100
+Blackgram      100
+Lentil         100
+Pomegranate    100
+Banana         100
+Mango          100
+Grapes         100
+Watermelon     100
+Muskmelon      100
+Apple          100
+Orange         100
+Papaya         100
+Coconut        100
+Cotton         100
+Jute           100
+Coffee         100
+Name: count, dtype: int64
+|--- Phosphorus <= 107.50
+|   |--- Rainfall <= 30.18
+|   |   |--- class: 15
+|   |--- Rainfall >  30.18
+|   |   |--- Humidity <= 27.98
+|   |   |   |--- Potassium <= 50.00
+|   |   |   |   |--- class: 9
+|   |   |   |--- Potassium >  50.00
+|   |   |   |   |--- class: 3
+|   |   |--- Humidity >  27.98
+|   |   |   |--- Humidity <= 70.65
+|   |   |   |   |--- truncated branch of depth 9
+|   |   |   |--- Humidity >  70.65
+|   |   |   |   |--- truncated branch of depth 14
+|--- Phosphorus >  107.50
+|   |--- Humidity <= 87.00
+|   |   |--- class: 7
+|   |--- Humidity >  87.00
+|   |   |--- class: 0
+
+0.9840909090909091
+              precision    recall  f1-score   support
+
+       Apple       1.00      1.00      1.00        20
+      Banana       1.00      1.00      1.00        20
+   Blackgram       1.00      0.90      0.95        20
+    ChickPea       1.00      1.00      1.00        20
+     Coconut       1.00      1.00      1.00        20
+      Coffee       1.00      1.00      1.00        20
+      Cotton       1.00      1.00      1.00        20
+      Grapes       1.00      1.00      1.00        20
+        Jute       0.95      0.95      0.95        20
+ KidneyBeans       1.00      1.00      1.00        20
+      Lentil       0.95      0.90      0.92        20
+       Maize       0.95      1.00      0.98        20
+       Mango       1.00      1.00      1.00        20
+   MothBeans       0.86      0.95      0.90        20
+    MungBean       1.00      1.00      1.00        20
+   Muskmelon       1.00      1.00      1.00        20
+      Orange       1.00      1.00      1.00        20
+      Papaya       1.00      1.00      1.00        20
+  PigeonPeas       1.00      1.00      1.00        20
+ Pomegranate       1.00      1.00      1.00        20
+        Rice       0.95      0.95      0.95        20
+  Watermelon       1.00      1.00      1.00        20
+
+    accuracy                           0.98       440
+   macro avg       0.98      0.98      0.98       440
+weighted avg       0.98      0.98      0.98       440
+
+0.990909090909091
+0.9931818181818182
